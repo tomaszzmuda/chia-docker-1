@@ -1,0 +1,22 @@
+mount -t cifs -o credentials=~/.Smbcredentials,uid=1000,gid=1000 //u264756.your-storagebox.de/backup /mnt/storage
+
+
+
+mount -t cifs -o cache=none,user=u264756,pass=b4iJTuuXeNjMisHWqh3m,sec=ntlm //u264756.your-storagebox.de/backup /mnt/storage
+
+
+
+
+docker run --name chia -d ghcr.io/chia-network/chia:latest \
+ -v ~/plots_tmp_01:plots_tmp_01 \
+ -v ~/plots_tmp_02:plots_tmp_02 \
+ -v /mnt/plots_final_01:plots_final_01 \
+ -v /mnt/plots_final_02:plots_final_02 \
+ -v /mnt/plots_final_03:plots_final_03
+
+
+
+docker exec -it chia_one venv/bin/chia plots add -d /plots -n 8
+
+
+docker exec -it chia_one venv/bin/chia plots -hdf

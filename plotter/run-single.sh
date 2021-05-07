@@ -1,0 +1,1 @@
+docker run -d --name plotter${NR} --network none -v /mnt/scratch/plotter${NR}:/tmp -v /mnt/storage/plots:/plots clx/chia-plotter:latest

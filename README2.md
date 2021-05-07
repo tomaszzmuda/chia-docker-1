@@ -1,3 +1,5 @@
+# Setup
+
     apt install git make zip unzip docker.io docker-compose cifs-utils
 
 ## Generating a wallet and store mnemonic phrase in keyfile
@@ -31,15 +33,15 @@ Port forward 8444
     # docker exec -it farmer bash
     # chia show -sc
 
-# IMPORTANT
+## IMPORTANT
 
     nohup bash start-plotters.sh 4 &
 
-# Stop Container
+## Stop Container
 
     docker exec plotter1 touch /root/stoprun
 
-# Mounten
+## Mounten
 
     sudo apt install cifs-utils
 

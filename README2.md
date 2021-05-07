@@ -4,6 +4,7 @@
 
     # docker build -t clx/chia-genkey farmer/
     docker build -t clx/chia-farmer farmer/
+    # docker run --rm clx/chia-farmer bash -c 'chia init && chia keys generate_and_print' | sed -n '7p' > keyfile
     docker run --rm clx/chia-farmer bash -c 'chia init && chia keys generate_and_print' | sed -n '7p' > keyfile
 
 
@@ -54,9 +55,7 @@ VOLUME VERKNÜPFEN
 
     mount -o discard,defaults /dev/disk/by-id/scsi-0HC_Volume_11049661 /mnt/scratch
 
-    mount -o discard,defaults,credentials=/etc/.cred_samba //u /mnt/storage
-    touch /etc/.cred_samba
-    mount -t cifs //u264756.your-storagebox.de/backup /mnt/test -o sec=ntlmv2,username=u264756,password=8xdgBFtd02w2ETcr
+    mount -t cifs //u264756.your-storagebox.de/backup /mnt/storage -o sec=ntlmv2,username=u264756,password=8xdgBFtd02w2ETcr
 
 OPTIONAL: VOLUME ZU FSTAB HINZUFÜGEN
 

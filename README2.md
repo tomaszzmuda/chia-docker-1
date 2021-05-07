@@ -1,34 +1,34 @@
     apt install git make zip unzip docker.io docker-compose cifs-utils
 
-## Setup
+## Generating a wallet and store mnemonic phrase in keyfile
 
-    touch farmer/keyfile
-    docker build -t localhost/chia-genkey farmer/
+    # docker build -t clx/chia-genkey farmer/
+    docker build -t clx/chia-farmer farmer/
+    docker run --rm clx/chia-farmer bash -c 'chia init && chia keys generate_and_print' | sed -n '7p' > keyfile
 
-## Generating a keyfile
 
-    docker run --rm localhost/chia-genkey bash -c 'chia init && chia keys generate_and_print' | sed -n '7p' > keyfile
 
-    cp farmer/keyfile plotter/keyfile
+    cp keyfile farmer/keyfile q
+    mv keyfile plotter/keyfile
 
-    docker image rm localhost/chia-genkey:latest
+    # docker image rm clx/chia-genkey:latest
 
 ### Starting the farmer
 
     docker volume create chia-db
-    docker build -t localhost/chia-farmer farmer/
-    docker run -it -p 8444:8444 --name farmer -v chia-db:/root/.chia -v /mnt/storage:/plots:ro localhost/chia-farmer
+    # docker build -t clx/chia-farmer farmer/
+    docker run -it -p 8444:8444 --name farmer -v chia-db:/root/.chia -v /mnt/storage:/plots:ro clx/chia-farmer
 
 Port forward 8444
 
 ### Starting a plotter
 
-    docker build -t localhost/chia-plotter plotter/
-    docker run -d --name plotter1 -v /scratch/plotter1:/tmp -v /mnt/plots_final_01:/plots localhost/chia-plotter
+    docker build -t clx/chia-plotter plotter/
+    # docker run -d --name plotter1 -v /scratch/plotter1:/tmp -v /mnt/plots_final_01:/plots clx/chia-plotter
 
-    docker logs -tf plotter1
-    docker exec -it farmer bash
-    chia show -sc
+    # docker logs -tf plotter1
+    # docker exec -it farmer bash
+    # chia show -sc
 
 # IMPORTANT
 

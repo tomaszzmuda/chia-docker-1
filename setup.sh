@@ -1,4 +1,7 @@
-echo 🌱 START SETUP
+echo 🌱  🌱  🌱  🌱  🌱  🌱  🌱  🌱  🌱
+echo 🌱  🌱  🌱  START SETUP  🌱  🌱  🌱 
+echo 🌱  🌱  🌱  🌱  🌱  🌱  🌱  🌱  🌱
+echo 
 echo 🌱 SET PERMISSION
 chmod +x *.sh
 chmod +x farmer/*.sh
@@ -25,3 +28,6 @@ mount -t cifs //u264756.your-storagebox.de/backup /mnt/storage -o sec=ntlmv2,use
 echo "//u264756.your-storagebox.de/backup /mnt/storage cifs auto,users,credentials=~/.smbcredentials,uid=1000,gid=1000,file_mode=0644,dir_mode=0755  0 0
 " >> /etc/fstab
 mount -a
+
+echo 🌱 CREATE DOCKER VOLUME FOR DB
+docker volume create chia-db

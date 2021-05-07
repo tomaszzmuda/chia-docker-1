@@ -1,9 +1,9 @@
 FROM python:3.7
+
 RUN pip install --extra-index-url https://hosted.chia.net/simple/ chia-blockchain==1.1.4 miniupnpc==2.1
 
-#FROM ghcr.io/chia-network/chia:latest
-COPY keyfile farmer.sh /root/
+COPY keyfile init.sh /root/
 
 EXPOSE 8444
 
-CMD bash /root/farmer.sh
+CMD bash /root/init.sh

@@ -18,14 +18,14 @@
 
     docker volume create chia-db
     # docker build -t clx/chia-farmer farmer/
-    docker run -it -p 8444:8444 --name farmer -v chia-db:/root/.chia -v /mnt/storage:/plots:ro clx/chia-farmer
+    docker run -it -p 8444:8444 --name farmer -v chia-db:/root/.chia -v /mnt/storage/plots:/plots:ro clx/chia-farmer
 
 Port forward 8444
 
 ### Starting a plotter
 
     docker build -t clx/chia-plotter plotter/
-    # docker run -d --name plotter1 -v /scratch/plotter1:/tmp -v /mnt/plots_final_01:/plots clx/chia-plotter
+    # docker run -d --name plotter1 -v /mnt/scratch/plotter1:/tmp -v /mnt/storage/plots:/plots clx/chia-plotter
 
     # docker logs -tf plotter1
     # docker exec -it farmer bash
@@ -60,3 +60,5 @@ VOLUME VERKNÜPFEN
 OPTIONAL: VOLUME ZU FSTAB HINZUFÜGEN
 
     echo "/dev/disk/by-id/scsi-0HC_Volume_11049661 /mnt/scratch ext4 discard,nofail,defaults 0 0" >> /etc/fstab
+
+./setup.sh

@@ -1,7 +1,0 @@
-#!/bin/bash
-
-for (( c=1; c<=$1; c++ ))
-do
-  docker run -d --name plotter$c --network none -v /scratch/plotter$c:/tmp -v /storage/chia:/plots clx/chia-plotter:latest
-  sleep 1h
-done

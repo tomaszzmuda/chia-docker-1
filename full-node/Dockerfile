@@ -23,12 +23,6 @@ RUN git clone  https://github.com/Chia-Network/chia-blockchain.git \
     && /usr/bin/sh ./install.sh
 
 WORKDIR /chia-blockchain
-RUN . ./activate
-RUN pip install --force-reinstall git+https://github.com/ericaltendorf/plotman@main
-RUN plotman config generate
-RUN deactivate
-
-COPY keyfile .
 RUN mkdir /plots
 ADD ./entrypoint.sh entrypoint.sh
 

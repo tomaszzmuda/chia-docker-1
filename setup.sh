@@ -29,8 +29,8 @@ mount -a
 echo 🌱 MOUNT STORAGE /plots - /mnt/storage
 mkdir /mnt/storage
 chmod +x /mnt/storage
-mount -t cifs //u264756.your-storagebox.de/backup /mnt/storage -o sec=ntlmv2,credentials=~/.smbcredentials
-echo "//u264756.your-storagebox.de/backup /mnt/storage cifs auto,users,credentials=~/.smbcredentials,uid=1000,gid=1000,file_mode=0644,dir_mode=0755  0 0
+mount -t cifs //u264756.your-storagebox.de/backup /mnt/storage -o sec=ntlmv2,credentials=/root/.smbcredentials
+echo "//u264756.your-storagebox.de/backup /mnt/storage cifs auto,users,credentials=/root/.smbcredentials,uid=1000,gid=1000,file_mode=0644,dir_mode=0755  0 0
 " >> /etc/fstab
 mount -a
 

@@ -1,3 +1,3 @@
 echo 🌱 RUN PLOTTER
 # ./plotter/run.sh
-nohup bash plotter/run.sh 3 &
+nohup bash plotter/run.sh ${PA} &

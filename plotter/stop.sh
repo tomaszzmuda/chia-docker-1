@@ -1,6 +1,6 @@
 #!/bin/bash
 
-docker exec plotter1 touch /root/stoprun
-docker exec plotter2 touch /root/stoprun
-docker exec plotter3 touch /root/stoprun
-docker exec plotter4 touch /root/stoprun
+for (( c=1; c<=${PA}; c++ ))
+do
+    docker exec plotter${PA} touch /root/stoprun
+done

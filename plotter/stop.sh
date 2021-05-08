@@ -2,5 +2,5 @@
 
 for (( c=1; c<=${PA}; c++ ))
 do
-    docker exec plotter${PA} touch /root/stoprun
+    docker exec plotter$c touch /root/stoprun
 done

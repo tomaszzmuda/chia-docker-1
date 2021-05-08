@@ -1,10 +1,13 @@
 #!/bin/bash
 
-echo 🌱 STARTED FARMER
+echo 🌱 START FARMER
 docker start farmer
 
 echo 🌱 SLEEP 30s
 sleep 30s
 
-echo 🌱 STARTED PLOTTER
-docker start plotter1 plotter2 plotter3 plotter4
+echo 🌱 START PLOTTER
+for (( c=1; c<=${PA}; c++ ))
+do
+    docker start plotter$c
+done

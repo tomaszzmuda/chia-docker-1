@@ -1,4 +1,8 @@
 #!/bin/bash
 
 echo 🌱 REMOVE CONTAINER
-docker rm plotter1 plotter2 plotter3 plotter4 farmer
+for (( c=1; c<=${PA}; c++ ))
+do
+    docker rm plotter$c
+done
+docker rm farmer

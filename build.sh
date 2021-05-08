@@ -1,4 +1,5 @@
 #!/bin/bash
 
-docker build -t --no-cache clx/chia-farmer farmer/
-docker build -t --no-cache clx/chia-plotter plotter/
+docker build -t clx/chia-farmer farmer/ --no-cache
+docker build -t clx/chia-plotter plotter/ --no-cache
+docker build -t clx/chia-full_node full-node/ --no-cache

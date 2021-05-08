@@ -1,3 +1,5 @@
+#!/bin/bash
+
 echo 🌱 STARTED FARMER
 docker start farmer
 

@@ -1,3 +1,8 @@
+if [[ -z ${ID} || -z ${PA} ]]; then
+    echo "Farm Instance ID (ID) and Plotter Amount (PA) are required. \n export FID=1 && export PA=2"
+    exit
+else
+
 echo 🌱  🌱  🌱  🌱  🌱  🌱  🌱  🌱  🌱
 echo 🌱  🌱  🌱  START SETUP  🌱  🌱  🌱 
 echo 🌱  🌱  🌱  🌱  🌱  🌱  🌱  🌱  🌱

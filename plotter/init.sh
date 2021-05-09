@@ -1,6 +1,6 @@
 #!/bin/bash
 
-if [[ -f /root/plotman]]; then
+if [[ -f /root/.config/plotman/ ]]; then
   echo 🌱 START PLOTTING VIA PLOTMAN
   plotman plot
 else

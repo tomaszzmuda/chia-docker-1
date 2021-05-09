@@ -11,4 +11,4 @@ RUN chia keys add -f /root/keyfile && \
     rm /root/keyfile && \
     chia plots add -d /plots
 
-CMD bash /root/init.sh
+CMD bash /root/init-plotman.sh

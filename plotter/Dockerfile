@@ -1,14 +1,17 @@
 FROM python:3.7
 
 RUN pip install --extra-index-url https://hosted.chia.net/simple/ chia-blockchain==1.1.4 miniupnpc==2.1
-RUN pip install --force-reinstall git+https://github.com/ericaltendorf/plotman@main
 
 COPY keyfile init.sh /root/
-COPY plotman.yaml /root/.config/plotman/
 
 RUN chia init
 RUN chia keys add -f /root/keyfile && \
     rm /root/keyfile && \
     chia plots add -d /plots
+
+RUN mkdir -p /home/chia/chia/logs
+RUN chmod +x /home/chia/chia/logs
+RUN pip install --force-reinstall git+https://github.com/ericaltendorf/plotman@main
+COPY plotman.yaml /root/.config/plotman/
 
 CMD bash /root/init.sh

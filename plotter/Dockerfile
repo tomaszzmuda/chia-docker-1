@@ -8,7 +8,7 @@ COPY plotman.yaml /root/.config/plotman/
 RUN chia init
 RUN chia keys add -f /root/keyfile && \
     rm /root/keyfile && \
-    chia plots add -d /plots
+    chia plots add -d /dst
 
 RUN mkdir -p /home/chia/chia/logs
 RUN chmod +x /home/chia/chia/logs
